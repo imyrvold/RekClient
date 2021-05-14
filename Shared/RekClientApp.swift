@@ -9,9 +9,30 @@ import SwiftUI
 
 @main
 struct RekClientApp: App {
+    @Environment(\.scenePhase) var scenePhase
+    @StateObject var loginHandler = LoginHandler()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if loginHandler.authenticated {
+                Text("Hurra, vi er autentisert 😀")
+                    .onChange(of: scenePhase, perform: { phase in
+                        print("RekClientApp authenticated phase:", phase)
+                        if phase == .active {
+                            loginHandler.checkToken()
+                        }
+                    })
+            } else {
+                LoginView(loginHandler: loginHandler)
+                    .onChange(of: scenePhase, perform: { phase in
+                        if phase == .active {
+                            loginHandler.checkToken()
+                        }
+                    })
+                    .onAppear() {
+                        loginHandler.checkToken()
+                    }
+            }
         }
     }
 }

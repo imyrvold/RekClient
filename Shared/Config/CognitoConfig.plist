@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>clientId</key>
+	<string>4dq2vcvc5ibaj8mi9g1rr4ium8</string>
+	<key>clientSecret</key>
+	<string>m80tfq27p1vs2mdddalhjodm9bg5chmo3hrai7a2skagea9399i</string>
+	<key>endpoint</key>
+	<string>https://hjrpm0nnsh.execute-api.eu-west-1.amazonaws.com/prod</string>
+	<key>poolId</key>
+	<string>eu-west-1_ahwqNtDCX</string>
+	<key>region</key>
+	<string>eu-west-1</string>
+</dict>
+</plist>
