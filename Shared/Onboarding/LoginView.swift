@@ -11,6 +11,7 @@ struct LoginView: View {
     @State private var username = ""
     @State private var email = ""
     @State private var password = ""
+    @State private var verificationCode = ""
     @State private var showForm = false
     @State var newPassword = ""
     @ObservedObject var loginHandler: LoginHandler// = LoginHandler()
@@ -69,8 +70,7 @@ struct LoginView: View {
                 })
             }
             
-            BottomSheetView(isOpen: $loginHandler.challenged, maxHeight: 400) {
-                
+            BottomSheetView(isOpen: $loginHandler.challenged, maxHeight: 300) {
                 VStack {
                     Text("You must change your password")
                         .font(.headline)
@@ -84,6 +84,48 @@ struct LoginView: View {
                     .disabled(newPassword.isEmpty)
                 }
                 .padding()
+            }
+            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+
+            BottomSheetView(isOpen: $loginHandler.confirmSignup, maxHeight: 300) {
+                VStack {
+                    Text("Please confirm with code sent by email")
+                        .font(.headline)
+                        .padding(.bottom)
+                    
+                    TextField("Verification Code", text: $verificationCode)
+                    
+                    Button("Verify") {
+                        loginHandler.confirmSignup(with: username, and: verificationCode)
+                    }
+                    .disabled(verificationCode.count != 6)
+                }
+                .padding()
+            }
+            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
+            
+            ErrorSheetView(isOpen: $loginHandler.error, maxHeight: 250) {
+                VStack {
+                    HStack {
+                        Image(systemName: "xmark.octagon.fill")
+                            .renderingMode(.original)
+
+                        Text("Error!")
+                    }
+                    .font(.title)
+                    .padding([.bottom, .top])
+
+                    Text(loginHandler.errorText)
+                        .font(.footnote)
+                        .padding()
+
+                    Spacer()
+                    
+                    Button("Cancel") {
+                        loginHandler.cancelError()
+                    }
+                    .padding(.bottom, 40)
+                }
             }
             .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
 

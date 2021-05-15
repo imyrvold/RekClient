@@ -34,12 +34,18 @@ class LoginHandler: ObservableObject {
     lazy var cognitoConfig = CognitoConfig()
     @Published var challenged = false
     @Published var authenticated = false
+    @Published var confirmSignup = false
+    @Published var error = false
+    @Published var errorText = "" {
+        didSet {
+            error = true
+        }
+    }
     var challenge: CognitoAuthenticateResponse.ChallengedResponse?
     var username: String?
     let keychain = KeychainSwift()
     
     func handleLogin(username: String, password: String) {
-        print("LoginHandler handleLogin", Date())
         let data = AWSCognitoContext()
         let response = self.authenticatable.authenticate(
             username: username,
@@ -57,11 +63,9 @@ class LoginHandler: ObservableObject {
     }
     
     func handleChallenge(with newPassword: String) {
-        print("LoginHandler handleChallenge newPassword:", newPassword)
         self.challenged = false
         guard let challenge = self.challenge, let session = challenge.session, let username = self.username else { return }
         let data = AWSCognitoContext()
-        print("LoginHandler handleChallenge challenge.name:", challenge.name)
         if challenge.name == CognitoChallengeName.newPasswordRequired.rawValue {
             let challengeName: CognitoChallengeName = .newPasswordRequired
             let challengeResponse = ["NEW_PASSWORD": newPassword]
@@ -87,15 +91,15 @@ class LoginHandler: ObservableObject {
         DispatchQueue.main.async {
             switch result {
             case .failure(let error):
-                print("LoginHandler handleAuthentication failure error:", error)
+                DispatchQueue.main.async {
+                    self.errorText = "\(error)"
+                }
             case .success(let response):
                 switch response {
                 case .authenticated(let authenticatedResponse):
-                    print("LoginHandler handleAuthentication authenticated authenticatedResponse:", authenticatedResponse)
                     self.authenticated = true
                     self.handleAuthentication(with: authenticatedResponse)
                 case .challenged(let challengedResponse):
-                    print("LoginHandler handleAuthentication authenticated challengedResponse:", challengedResponse)
                     self.challenged = true
                     self.challenge = challengedResponse
                 }
@@ -113,20 +117,41 @@ class LoginHandler: ObservableObject {
     }
 
     func registerUser(username: String, email: String, password: String) {
-        let attributes: [String: String] = ["username": username, "email": email, "password": password]
-
-//        let response = authenticatable.createUser(username: username, attributes: attributes, temporaryPassword: password)
+        let attributes: [String: String] = ["email": email]
         let response = authenticatable.signUp(username: username, password: password, attributes: attributes)
         
         response.whenComplete { result in
             switch result {
             case .failure(let error):
-                print("LoginHandler registerUser error:", error)
-            case .success(let userResponse):
-                let userConfirmed = userResponse.userConfirmed
-                let userSub = userResponse.userSub
+                DispatchQueue.main.async {
+                    self.errorText = "\(error)"
+                }
+            case .success(_):
+//                let userConfirmed = userResponse.userConfirmed
+//                let userSub = userResponse.userSub
                 
-                print("userConfirmed:", userConfirmed, " userSub:", userSub)
+                DispatchQueue.main.async {
+                    self.confirmSignup = true
+                }
+            }
+        }
+    }
+    
+    func confirmSignup(with username: String, and verificationCode: String) {
+        let response = authenticatable.confirmSignUp(username: username, confirmationCode: verificationCode)
+        DispatchQueue.main.async {
+            self.confirmSignup = false
+        }
+
+        
+        response.whenComplete { result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.errorText = "\(error)"
+                }
+            case .success():
+                break
             }
         }
     }
@@ -155,8 +180,8 @@ class LoginHandler: ObservableObject {
         response.whenComplete { result in
             switch result {
             case .failure(let error):
-                print("LoginHandler refreshToken failure:", error)
                 DispatchQueue.main.async {
+                    self.errorText = "\(error)"
                     self.authenticated = false
                 }
             case .success(let response):
@@ -172,6 +197,10 @@ class LoginHandler: ObservableObject {
                 }
             }
         }
+    }
+    
+    func cancelError() {
+        self.error = false
     }
 }
 
