@@ -10,7 +10,6 @@
 		F695DC04263E6243001A76B9 /* RekClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F695DBF1263E6241001A76B9 /* RekClientApp.swift */; };
 		F695DC05263E6243001A76B9 /* RekClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F695DBF1263E6241001A76B9 /* RekClientApp.swift */; };
 		F695DC06263E6243001A76B9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F695DBF2263E6241001A76B9 /* LoginView.swift */; };
-		F695DC07263E6243001A76B9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F695DBF2263E6241001A76B9 /* LoginView.swift */; };
 		F695DC08263E6243001A76B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F695DBF3263E6243001A76B9 /* Assets.xcassets */; };
 		F695DC09263E6243001A76B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F695DBF3263E6243001A76B9 /* Assets.xcassets */; };
 		F69C3509264819ED009CFC20 /* CognitoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F69C3508264819ED009CFC20 /* CognitoConfig.plist */; };
@@ -23,10 +22,12 @@
 		F69C3516264D0E91009CFC20 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F69C3515264D0E91009CFC20 /* KeychainSwift */; };
 		F69C3524264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */; };
 		F69C3525264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */; };
+		F69C352826513791009CFC20 /* SotoCognitoAuthenticationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352726513791009CFC20 /* SotoCognitoAuthenticationKit */; };
+		F69C352A26513791009CFC20 /* SotoCognitoAuthenticationSRP in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352926513791009CFC20 /* SotoCognitoAuthenticationSRP */; };
+		F69C352C26513791009CFC20 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352B26513791009CFC20 /* KeychainSwift */; };
 		F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84817263E8E3E00F7FD9B /* RegisterView.swift */; };
-		F6B84819263E8E3E00F7FD9B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84817263E8E3E00F7FD9B /* RegisterView.swift */; };
 		F6B84823263ED5C400F7FD9B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84822263ED5C400F7FD9B /* AppError.swift */; };
 		F6B84824263ED5C400F7FD9B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84822263ED5C400F7FD9B /* AppError.swift */; };
 		F6B8482B263EDB4800F7FD9B /* SotoCognitoAuthenticationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F6B8482A263EDB4800F7FD9B /* SotoCognitoAuthenticationKit */; };
@@ -70,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69C352C26513791009CFC20 /* KeychainSwift in Frameworks */,
+				F69C352826513791009CFC20 /* SotoCognitoAuthenticationKit in Frameworks */,
+				F69C352A26513791009CFC20 /* SotoCognitoAuthenticationSRP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,7 @@
 				F695DBFA263E6243001A76B9 /* iOS */,
 				F695DC01263E6243001A76B9 /* macOS */,
 				F695DBF9263E6243001A76B9 /* Products */,
+				F69C352626513791009CFC20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,10 +144,19 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		F69C352626513791009CFC20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6B84811263E659D00F7FD9B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F695DBF2263E6241001A76B9 /* LoginView.swift */,
 				F69C3512264CE84D009CFC20 /* BottomSheetView.swift */,
+				F6B84817263E8E3E00F7FD9B /* RegisterView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -158,8 +172,6 @@
 		F6B84816263E8E2000F7FD9B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F695DBF2263E6241001A76B9 /* LoginView.swift */,
-				F6B84817263E8E3E00F7FD9B /* RegisterView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -226,6 +238,11 @@
 			dependencies = (
 			);
 			name = "RekClient (macOS)";
+			packageProductDependencies = (
+				F69C352726513791009CFC20 /* SotoCognitoAuthenticationKit */,
+				F69C352926513791009CFC20 /* SotoCognitoAuthenticationSRP */,
+				F69C352B26513791009CFC20 /* KeychainSwift */,
+			);
 			productName = "RekClient (macOS)";
 			productReference = F695DC00263E6243001A76B9 /* RekClient.app */;
 			productType = "com.apple.product-type.application";
@@ -337,10 +354,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */,
-				F6B84819263E8E3E00F7FD9B /* RegisterView.swift in Sources */,
 				F6B84824263ED5C400F7FD9B /* AppError.swift in Sources */,
 				F6B84830263EDF1800F7FD9B /* LoginHandler.swift in Sources */,
-				F695DC07263E6243001A76B9 /* LoginView.swift in Sources */,
 				F69C3525264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */,
 				F695DC05263E6243001A76B9 /* RekClientApp.swift in Sources */,
 				F69C351126482289009CFC20 /* CognitoConfig.swift in Sources */,
@@ -607,6 +622,21 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		F69C3515264D0E91009CFC20 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F69C3514264D0E91009CFC20 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		F69C352726513791009CFC20 /* SotoCognitoAuthenticationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B84829263EDB4800F7FD9B /* XCRemoteSwiftPackageReference "soto-cognito-authentication-kit" */;
+			productName = SotoCognitoAuthenticationKit;
+		};
+		F69C352926513791009CFC20 /* SotoCognitoAuthenticationSRP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6B84829263EDB4800F7FD9B /* XCRemoteSwiftPackageReference "soto-cognito-authentication-kit" */;
+			productName = SotoCognitoAuthenticationSRP;
+		};
+		F69C352B26513791009CFC20 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F69C3514264D0E91009CFC20 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
