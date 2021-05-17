@@ -9,6 +9,7 @@ import Foundation
 import SotoCognitoAuthenticationKit
 import SotoCognitoIdentityProvider
 import SotoCognitoIdentity
+import SotoS3
 import Combine
 import KeychainSwift
 
@@ -20,6 +21,7 @@ class LoginHandler: ObservableObject {
     }
 
     lazy var awsClient = AWSClient(credentialProvider: .empty, httpClientProvider: .createNew)
+    lazy var s3 = S3(client: awsClient, region: .euwest1)
     lazy var cognitoIdentityProvider = CognitoIdentityProvider(client: awsClient, region: .euwest1)
     lazy var configuration: CognitoConfiguration = {
         let poolId = cognitoConfig.getPoolId()
@@ -203,6 +205,30 @@ class LoginHandler: ObservableObject {
     
     func cancelError() {
         self.error = false
+    }
+    
+    func uploadToS3(image: Data) {
+        let bucket = cognitoConfig.getImageBucket()
+//        let bucket = "/private"
+        let bodyData = AWSPayload.data(Data())
+        let putRequest = SotoS3.S3.PutObjectRequest(
+            acl: S3.ObjectCannedACL.publicRead,
+            body: bodyData,
+            bucket: bucket,
+            key: UUID().uuidString
+        )
+        
+        s3.putObject(putRequest).whenComplete { result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    print("putObjectOutput error: \(error)")
+                    self.errorText = "\(error)"
+                }
+            case .success(let putObjectOutput):
+                print("putObjectOutput:", putObjectOutput)
+            }
+        }
     }
 }
 

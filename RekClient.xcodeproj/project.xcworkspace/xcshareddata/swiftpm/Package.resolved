@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/soto-project/soto.git",
         "state": {
           "branch": null,
-          "revision": "f3896f1d87c906604b52f802ede695469f9c1e4f",
-          "version": "5.4.0"
+          "revision": "bc693b36e046d9f65e5a5cefe3036a37ebbbd19d",
+          "version": "5.5.0"
         }
       },
       {

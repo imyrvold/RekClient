@@ -28,7 +28,15 @@ REST_API_ID=$(aws apigateway get-rest-apis --query items[?name==\`${API_NAME}\`]
 ENDPOINT=https://${REST_API_ID}.execute-api.eu-west-1.amazonaws.com/prod
 echo "API available at: ${ENDPOINT}"
 
+IMAGE_BUCKET=$(aws s3 ls | aws s3 ls | awk '/lambdadeploymentstage/{print $NF}' | awk "NR==1{print;exit}")
+echo "IMAGE_BUCKET=${IMAGE_BUCKET}"
+
+THUMB_BUCKET=$(aws s3 ls | awk '/lambdadeploymentstage/{print $NF}' | awk "NR==2{print;exit}")
+echo "THUMB_BUCKET=${THUMB_BUCKET}"
+
 $PLISTBUDDY -c "Set :poolId $USER_POOL_ID" "${plistPath}"
 $PLISTBUDDY -c "Set :clientId $APP_CLIENT_ID" "${plistPath}"
 $PLISTBUDDY -c "Set :clientSecret $APP_CLIENT_SECRET" "${plistPath}"
+$PLISTBUDDY -c "Set :imageBucket $IMAGE_BUCKET" "${plistPath}"
+$PLISTBUDDY -c "Set :thumbBucket $THUMB_BUCKET" "${plistPath}"
 $PLISTBUDDY -c "Set :endpoint $ENDPOINT" "${plistPath}"

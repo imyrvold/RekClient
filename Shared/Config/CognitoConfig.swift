@@ -70,6 +70,22 @@ class CognitoConfig: NSObject {
         return clientSecret!
     }
     
+    func getImageBucket() -> String {
+        let imageBucket = self.keys?["imageBucket"] as? String
+        guard imageBucket != nil else {
+            fatalError("You must specify imageBucket in your CognitoConfig.plist file")
+        }
+        return imageBucket!
+    }
+    
+    func getThumbBucket() -> String {
+        let thumbBucket = self.keys?["thumbBucket"] as? String
+        guard thumbBucket != nil else {
+            fatalError("You must specify thumbBucket in your CognitoConfig.plist file")
+        }
+        return thumbBucket!
+    }
+    
     func getRegion() -> Region {
         let region = self.keys?["region"] as? String
         guard region != nil else {

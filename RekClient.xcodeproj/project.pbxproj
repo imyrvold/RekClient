@@ -31,6 +31,8 @@
 		F69C3538265252EE009CFC20 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3537265252EE009CFC20 /* ImagePicker.swift */; };
 		F69C3539265252EE009CFC20 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3537265252EE009CFC20 /* ImagePicker.swift */; };
 		F69C353C2652542B009CFC20 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353B2652542B009CFC20 /* PhotoView.swift */; };
+		F69C354426528295009CFC20 /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = F69C354326528295009CFC20 /* SotoS3 */; };
+		F69C3546265282AA009CFC20 /* SotoS3 in Frameworks */ = {isa = PBXBuildFile; productRef = F69C3545265282AA009CFC20 /* SotoS3 */; };
 		F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84817263E8E3E00F7FD9B /* RegisterView.swift */; };
@@ -74,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B8482B263EDB4800F7FD9B /* SotoCognitoAuthenticationKit in Frameworks */,
+				F69C354426528295009CFC20 /* SotoS3 in Frameworks */,
 				F69C3516264D0E91009CFC20 /* KeychainSwift in Frameworks */,
 				F6B8482D263EDB4800F7FD9B /* SotoCognitoAuthenticationSRP in Frameworks */,
 			);
@@ -84,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F69C352C26513791009CFC20 /* KeychainSwift in Frameworks */,
+				F69C3546265282AA009CFC20 /* SotoS3 in Frameworks */,
 				F69C352826513791009CFC20 /* SotoCognitoAuthenticationKit in Frameworks */,
 				F69C352A26513791009CFC20 /* SotoCognitoAuthenticationSRP in Frameworks */,
 			);
@@ -262,6 +266,7 @@
 				F6B8482A263EDB4800F7FD9B /* SotoCognitoAuthenticationKit */,
 				F6B8482C263EDB4800F7FD9B /* SotoCognitoAuthenticationSRP */,
 				F69C3515264D0E91009CFC20 /* KeychainSwift */,
+				F69C354326528295009CFC20 /* SotoS3 */,
 			);
 			productName = "RekClient (iOS)";
 			productReference = F695DBF8263E6243001A76B9 /* RekClient.app */;
@@ -284,6 +289,7 @@
 				F69C352726513791009CFC20 /* SotoCognitoAuthenticationKit */,
 				F69C352926513791009CFC20 /* SotoCognitoAuthenticationSRP */,
 				F69C352B26513791009CFC20 /* KeychainSwift */,
+				F69C3545265282AA009CFC20 /* SotoS3 */,
 			);
 			productName = "RekClient (macOS)";
 			productReference = F695DC00263E6243001A76B9 /* RekClient.app */;
@@ -318,6 +324,7 @@
 			packageReferences = (
 				F6B84829263EDB4800F7FD9B /* XCRemoteSwiftPackageReference "soto-cognito-authentication-kit" */,
 				F69C3514264D0E91009CFC20 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				F69C354226528295009CFC20 /* XCRemoteSwiftPackageReference "soto" */,
 			);
 			productRefGroup = F695DBF9263E6243001A76B9 /* Products */;
 			projectDirPath = "";
@@ -658,6 +665,14 @@
 				minimumVersion = 19.0.0;
 			};
 		};
+		F69C354226528295009CFC20 /* XCRemoteSwiftPackageReference "soto" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/soto-project/soto.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.5.0;
+			};
+		};
 		F6B84829263EDB4800F7FD9B /* XCRemoteSwiftPackageReference "soto-cognito-authentication-kit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/soto-project/soto-cognito-authentication-kit.git";
@@ -688,6 +703,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F69C3514264D0E91009CFC20 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		F69C354326528295009CFC20 /* SotoS3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F69C354226528295009CFC20 /* XCRemoteSwiftPackageReference "soto" */;
+			productName = SotoS3;
+		};
+		F69C3545265282AA009CFC20 /* SotoS3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F69C354226528295009CFC20 /* XCRemoteSwiftPackageReference "soto" */;
+			productName = SotoS3;
 		};
 		F6B8482A263EDB4800F7FD9B /* SotoCognitoAuthenticationKit */ = {
 			isa = XCSwiftPackageProductDependency;

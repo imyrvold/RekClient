@@ -8,9 +8,13 @@
 	<string></string>
 	<key>endpoint</key>
 	<string></string>
+	<key>imageBucket</key>
+	<string></string>
 	<key>poolId</key>
 	<string></string>
 	<key>region</key>
 	<string>eu-west-1</string>
+	<key>thumbBucket</key>
+	<string></string>
 </dict>
 </plist>
