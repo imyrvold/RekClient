@@ -14,7 +14,7 @@ struct LoginView: View {
     @State private var verificationCode = ""
     @State private var showForm = false
     @State var newPassword = ""
-    @ObservedObject var loginHandler: LoginHandler// = LoginHandler()
+    @ObservedObject var loginHandler: LoginHandler
     
     var buttonDisabled: Bool {
         showForm == true || username.isEmpty || password.isEmpty
@@ -43,6 +43,7 @@ struct LoginView: View {
                     .padding(.bottom)
 
                 Button(action: {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     loginHandler.handleLogin(username: username, password: password)
                 }, label: {
                     Text("Sign In")
@@ -68,41 +69,13 @@ struct LoginView: View {
                 .sheet(isPresented: $showForm, content: {
                     RegisterView(username: $username, email: $email, password: $password, loginHandler: loginHandler)
                 })
+                .sheet(isPresented: $loginHandler.confirmSignup, content: {
+                    ConfirmView(username: username, loginHandler: loginHandler)
+                })
+                .sheet(isPresented: $loginHandler.challenged, content: {
+                    ChallengeView(loginHandler: loginHandler)
+                })
             }
-            
-            BottomSheetView(isOpen: $loginHandler.challenged, maxHeight: 300) {
-                VStack {
-                    Text("You must change your password")
-                        .font(.headline)
-                        .padding(.bottom)
-                    
-                    TextField("New password", text: $newPassword)
-                    
-                    Button("Change password") {
-                        loginHandler.handleChallenge(with: newPassword)
-                    }
-                    .disabled(newPassword.isEmpty)
-                }
-                .padding()
-            }
-            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
-
-            BottomSheetView(isOpen: $loginHandler.confirmSignup, maxHeight: 300) {
-                VStack {
-                    Text("Please confirm with code sent by email")
-                        .font(.headline)
-                        .padding(.bottom)
-                    
-                    TextField("Verification Code", text: $verificationCode)
-                    
-                    Button("Verify") {
-                        loginHandler.confirmSignup(with: username, and: verificationCode)
-                    }
-                    .disabled(verificationCode.count != 6)
-                }
-                .padding()
-            }
-            .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)
             
             ErrorSheetView(isOpen: $loginHandler.error, maxHeight: 250) {
                 VStack {
@@ -124,7 +97,7 @@ struct LoginView: View {
                     Button("Cancel") {
                         loginHandler.cancelError()
                     }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 70)
                 }
             }
             .animation(/*@START_MENU_TOKEN@*/.easeIn/*@END_MENU_TOKEN@*/)

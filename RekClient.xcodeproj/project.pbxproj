@@ -21,10 +21,13 @@
 		F69C3513264CE84D009CFC20 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3512264CE84D009CFC20 /* BottomSheetView.swift */; };
 		F69C3516264D0E91009CFC20 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F69C3515264D0E91009CFC20 /* KeychainSwift */; };
 		F69C3524264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */; };
-		F69C3525264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */; };
 		F69C352826513791009CFC20 /* SotoCognitoAuthenticationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352726513791009CFC20 /* SotoCognitoAuthenticationKit */; };
 		F69C352A26513791009CFC20 /* SotoCognitoAuthenticationSRP in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352926513791009CFC20 /* SotoCognitoAuthenticationSRP */; };
 		F69C352C26513791009CFC20 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F69C352B26513791009CFC20 /* KeychainSwift */; };
+		F69C352F26513DB9009CFC20 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C352E26513DB9009CFC20 /* LoginView.swift */; };
+		F69C353126513E9D009CFC20 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353026513E9D009CFC20 /* RegisterView.swift */; };
+		F69C353326523BBE009CFC20 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353226523BBE009CFC20 /* ConfirmView.swift */; };
+		F69C3535265242C5009CFC20 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3534265242C5009CFC20 /* ChallengeView.swift */; };
 		F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84817263E8E3E00F7FD9B /* RegisterView.swift */; };
@@ -50,6 +53,10 @@
 		F69C350F26482289009CFC20 /* CognitoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CognitoConfig.swift; sourceTree = "<group>"; };
 		F69C3512264CE84D009CFC20 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSheetView.swift; sourceTree = "<group>"; };
+		F69C352E26513DB9009CFC20 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F69C353026513E9D009CFC20 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F69C353226523BBE009CFC20 /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
+		F69C3534265242C5009CFC20 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		F6B84813263E874900F7FD9B /* Image+centerCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerCropped.swift"; sourceTree = "<group>"; };
 		F6B84817263E8E3E00F7FD9B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F6B84822263ED5C400F7FD9B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -128,6 +135,7 @@
 		F695DC01263E6243001A76B9 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				F69C352D26513CAA009CFC20 /* Onboarding */,
 				F695DC02263E6243001A76B9 /* Info.plist */,
 				F695DC03263E6243001A76B9 /* macOS.entitlements */,
 			);
@@ -151,12 +159,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F69C352D26513CAA009CFC20 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F69C352E26513DB9009CFC20 /* LoginView.swift */,
+				F69C353026513E9D009CFC20 /* RegisterView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F6B84811263E659D00F7FD9B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				F695DBF2263E6241001A76B9 /* LoginView.swift */,
 				F69C3512264CE84D009CFC20 /* BottomSheetView.swift */,
 				F6B84817263E8E3E00F7FD9B /* RegisterView.swift */,
+				F69C353226523BBE009CFC20 /* ConfirmView.swift */,
+				F69C3534265242C5009CFC20 /* ChallengeView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -340,6 +359,8 @@
 				F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */,
 				F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */,
 				F69C3513264CE84D009CFC20 /* BottomSheetView.swift in Sources */,
+				F69C3535265242C5009CFC20 /* ChallengeView.swift in Sources */,
+				F69C353326523BBE009CFC20 /* ConfirmView.swift in Sources */,
 				F6B84823263ED5C400F7FD9B /* AppError.swift in Sources */,
 				F69C3524264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */,
 				F6B8482F263EDF1800F7FD9B /* LoginHandler.swift in Sources */,
@@ -354,9 +375,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */,
+				F69C352F26513DB9009CFC20 /* LoginView.swift in Sources */,
 				F6B84824263ED5C400F7FD9B /* AppError.swift in Sources */,
 				F6B84830263EDF1800F7FD9B /* LoginHandler.swift in Sources */,
-				F69C3525264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */,
+				F69C353126513E9D009CFC20 /* RegisterView.swift in Sources */,
 				F695DC05263E6243001A76B9 /* RekClientApp.swift in Sources */,
 				F69C351126482289009CFC20 /* CognitoConfig.swift in Sources */,
 			);

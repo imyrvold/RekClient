@@ -27,7 +27,7 @@ class LoginHandler: ObservableObject {
         let clientId = cognitoConfig.getClientId()
         let region: Region = cognitoConfig.getRegion()
         let cognitoIdentityProvider = CognitoIdentityProvider(client: awsClient, region: region)
-        
+
        return CognitoConfiguration(userPoolId: poolId, clientId: clientId, clientSecret: clientSecret, cognitoIDP: cognitoIdentityProvider)
     }()
     lazy var authenticatable = CognitoAuthenticatable(configuration: configuration)
@@ -56,8 +56,10 @@ class LoginHandler: ObservableObject {
             on: authenticatable.configuration.cognitoIDP.eventLoopGroup.next()
         )
         self.username = username
+        print("LoginHandler handleLogin username:", username)
 
         response.whenComplete { result in
+            print("LoginHandler handleLogin result:", result)
             self.handleAuthentication(with: result)
         }
     }

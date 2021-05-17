@@ -29,11 +29,13 @@ struct RegisterView: View {
                     Image(systemName: "envelope.fill")
                     TextField("Enter Email", text: $email)
                         .autocapitalization(.none)
+                        .keyboardType(.emailAddress)
+                        .textContentType(.emailAddress)
                 }
                 HStack {
                     Image(systemName: "lock.fill")
                     SecureField("Password", text: $password)
-                        .textContentType(.newPassword)
+                        .textContentType(.password)
                 }
                 HStack {
                     Image(systemName: "lock.fill")
