@@ -15,7 +15,7 @@ struct RekClientApp: App {
     var body: some Scene {
         WindowGroup {
             if loginHandler.authenticated {
-                Text("We have been authenticated 😀")
+                PhotoView(loginHandler: loginHandler)
                     .onChange(of: scenePhase, perform: { phase in
                         if phase == .active {
                             loginHandler.checkToken()

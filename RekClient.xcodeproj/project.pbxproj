@@ -28,6 +28,9 @@
 		F69C353126513E9D009CFC20 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353026513E9D009CFC20 /* RegisterView.swift */; };
 		F69C353326523BBE009CFC20 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353226523BBE009CFC20 /* ConfirmView.swift */; };
 		F69C3535265242C5009CFC20 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3534265242C5009CFC20 /* ChallengeView.swift */; };
+		F69C3538265252EE009CFC20 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3537265252EE009CFC20 /* ImagePicker.swift */; };
+		F69C3539265252EE009CFC20 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C3537265252EE009CFC20 /* ImagePicker.swift */; };
+		F69C353C2652542B009CFC20 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C353B2652542B009CFC20 /* PhotoView.swift */; };
 		F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84815263E874900F7FD9B /* Image+centerCropped.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84813263E874900F7FD9B /* Image+centerCropped.swift */; };
 		F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B84817263E8E3E00F7FD9B /* RegisterView.swift */; };
@@ -57,6 +60,8 @@
 		F69C353026513E9D009CFC20 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F69C353226523BBE009CFC20 /* ConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		F69C3534265242C5009CFC20 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
+		F69C3537265252EE009CFC20 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F69C353B2652542B009CFC20 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		F6B84813263E874900F7FD9B /* Image+centerCropped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+centerCropped.swift"; sourceTree = "<group>"; };
 		F6B84817263E8E3E00F7FD9B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F6B84822263ED5C400F7FD9B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 				F6B84821263ED5A800F7FD9B /* ErrorHandling */,
 				F6B8481D263ED4C000F7FD9B /* Networking */,
 				F6B84816263E8E2000F7FD9B /* Onboarding */,
+				F69C3536265252CD009CFC20 /* Photo */,
 				F6B84812263E871700F7FD9B /* Extensions */,
 				F695DBF1263E6241001A76B9 /* RekClientApp.swift */,
 				F695DBF3263E6243001A76B9 /* Assets.xcassets */,
@@ -126,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				F6B84811263E659D00F7FD9B /* Onboarding */,
+				F69C353A265253EF009CFC20 /* Photo */,
 				F695DBFB263E6243001A76B9 /* Info.plist */,
 				F69C3523264FD2AF009CFC20 /* ErrorSheetView.swift */,
 			);
@@ -166,6 +173,22 @@
 				F69C353026513E9D009CFC20 /* RegisterView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F69C3536265252CD009CFC20 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				F69C3537265252EE009CFC20 /* ImagePicker.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		F69C353A265253EF009CFC20 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				F69C353B2652542B009CFC20 /* PhotoView.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		F6B84811263E659D00F7FD9B /* Onboarding */ = {
@@ -357,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6B84814263E874900F7FD9B /* Image+centerCropped.swift in Sources */,
+				F69C353C2652542B009CFC20 /* PhotoView.swift in Sources */,
 				F6B84818263E8E3E00F7FD9B /* RegisterView.swift in Sources */,
 				F69C3513264CE84D009CFC20 /* BottomSheetView.swift in Sources */,
 				F69C3535265242C5009CFC20 /* ChallengeView.swift in Sources */,
@@ -365,6 +389,7 @@
 				F69C3524264FD2AF009CFC20 /* ErrorSheetView.swift in Sources */,
 				F6B8482F263EDF1800F7FD9B /* LoginHandler.swift in Sources */,
 				F695DC06263E6243001A76B9 /* LoginView.swift in Sources */,
+				F69C3538265252EE009CFC20 /* ImagePicker.swift in Sources */,
 				F695DC04263E6243001A76B9 /* RekClientApp.swift in Sources */,
 				F69C351026482289009CFC20 /* CognitoConfig.swift in Sources */,
 			);
@@ -379,6 +404,7 @@
 				F6B84824263ED5C400F7FD9B /* AppError.swift in Sources */,
 				F6B84830263EDF1800F7FD9B /* LoginHandler.swift in Sources */,
 				F69C353126513E9D009CFC20 /* RegisterView.swift in Sources */,
+				F69C3539265252EE009CFC20 /* ImagePicker.swift in Sources */,
 				F695DC05263E6243001A76B9 /* RekClientApp.swift in Sources */,
 				F69C351126482289009CFC20 /* CognitoConfig.swift in Sources */,
 			);
